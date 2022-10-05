@@ -7,19 +7,18 @@ export function PostList() {
     return (
         <section className="posts-list">
             <h2>Posts</h2>
-            {posts.map((post)=>(
+            {posts.map((post,index)=>(
                 
-                <article className="post-excerpt" key={post.id}>
+                <article className="post-excerpt" key={index}>
+                    <h3>{post.title}</h3>
+                    <p className="post-content">{post.content.substring(0, 100)}</p>
                     <Link
                         href={{
                             pathname: '/SinglePostPage',
-                            query: { postId: post.id },
-                        }}      
+                            query: { postId: post.id }
+                        }}
                     >
-                        <a>
-                            <h3>{post.title}</h3>
-                            <p className="post-content">{post.content.substring(0, 100)}</p>
-                        </a>
+                        <a className="button muted-button">View Post</a>
                     </Link>
                 </article>
             ))}
