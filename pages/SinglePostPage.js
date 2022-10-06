@@ -3,6 +3,9 @@ import { useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
 import { Navbar } from '../components/Navbar'
 import Link from 'next/link'
+import {PostAuthor} from '../components/PostAuthor'
+import {TimeAgo} from '../components/TimeAgo'
+
 export default function SinglePostPage() {
     const router = useRouter()
     const { postId } = router.query
@@ -24,6 +27,8 @@ export default function SinglePostPage() {
                 <article className="post">
                     <h2>{post.title}</h2>
                     <p className="post-content">{post.content}</p>
+                    <TimeAgo timeStamp={post.date}/>
+                    <PostAuthor userId={post.userId}/>
                     <Link
                         href={{
                             pathname: '/EditPostForm',
