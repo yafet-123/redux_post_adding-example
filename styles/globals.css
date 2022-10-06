@@ -93,10 +93,7 @@ nav a:hover {
 }
 
 /* Main content */
-a{
-  color: #212529;
-  text-decoration: none;
-}
+
 section {
   max-width: 800px;
   margin-left: auto;
